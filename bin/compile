@@ -32,27 +32,27 @@ else
     exit 1
 fi
 
-GOROOT=$build/.goroot export GOROOT
-GOPATH=$build/.go export GOPATH
-PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+# GOROOT=$build/.goroot export GOROOT
+# GOPATH=$build/.go export GOPATH
+# PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-mkdir -p $build/bin
-PATH=$build/bin:$PATH
+# mkdir -p $build/bin
+PATH=$build/bin:$build/vendor/bundle/ruby/1.9.1/bin:$PATH
 
-echo "-----> DEBUG"
-name=$(cat $build/.godir)
-p=$GOPATH/src/$name
-mkdir -p $p
-cp -R $build/* $p
-echo "-----> END DEBUG"
+# name=$(cat $build/.godir)
+# p=$GOPATH/src/$name
+# mkdir -p $p
+# cp -R $build/* $p
 
 go get -tags heroku github.com/shaoshing/train
 go build -o $build/bin/train github.com/shaoshing/train/cmd
 
+echo "-----> DEBUG"
 echo "Path: $PATH"
 echo `which sass`
 echo `which bundle`
 ls -al $build
 ls -al bin
+echo "-----> END DEBUG"
 
 cd $build && $build/bin/train
