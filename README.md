@@ -1,14 +1,8 @@
 # Heroku Buildpack: Train
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)
-for [Train](https://github.com/shaoshing/train), based on the [Revel](https://github.com/robfig/revel)
+for **[Train](https://github.com/shaoshing/train)** assets management for Go web apps. Based on the [Revel](https://github.com/robfig/revel)
 [buildpack](https://github.com/robfig/heroku-buildpack-go-revel).
-
-## Train
-
-From the author’s description:
-
-  Assets Management Package for web app in Go. The main purpose of it is to introduce some good practices already existed in Ruby on Rails’ Assets Pipeline.
 
 ## Usage
 
