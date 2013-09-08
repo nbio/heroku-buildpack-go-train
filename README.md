@@ -4,11 +4,11 @@ This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)
 for [Train](https://github.com/shaoshing/train), based on the [Revel](https://github.com/robfig/revel)
 [buildpack](https://github.com/robfig/heroku-buildpack-go-revel).
 
-## Heroku-specific build tag
+## Train
 
-The buildpack adds a `heroku` [build constraint][build-constraint],
-to enable heroku-specific code. See the [App Engine build constraints article][app-engine-build-constraints]
-for more.
+From the author’s description:
+
+  Assets Management Package for web app in Go. The main purpose of it is to introduce some good practices already existed in Ruby on Rails’ Assets Pipeline.
 
 ## Usage
 
@@ -33,9 +33,6 @@ Once `.buildpacks` and heroku remote are set up, deployment is a single command.
 ```
 $ git push heroku master
 ```
-
-The buildpack will detect your repository as Revel if it
-contains the `conf/app.conf` and `conf/routes` files.
 
 ## Hacking on this Buildpack
 
