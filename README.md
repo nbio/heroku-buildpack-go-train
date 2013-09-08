@@ -1,7 +1,8 @@
-# Heroku Buildpack: Revel
+# Heroku Buildpack: Train
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)
-for [Revel](http://robfig.github.io/revel/).
+for [Train](https://github.com/shaoshing/train), based on the [Revel](https://github.com/robfig/revel)
+[buildpack](https://github.com/robfig/heroku-buildpack-go-revel).
 
 ## Heroku-specific build tag
 
@@ -13,50 +14,24 @@ for more.
 
 ### Setup
 
-The buildpack requires a `.godir` file in the project root directory to tell it
-the import path to your Revel application.  The contents of `.godir` should be
-exactly the argument to "revel run" when running the application.
-
-Here is an example session.
+This buildpack requires [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi) to operate.
+To use, create a `.buildpack` file in your root directory with a Ruby and Go buildpack:
 
 ```
-$ pwd
-/Users/robfig/gocode/src/github.com/robfig/helloworld
+$ heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
 
-$ echo "github.com/robfig/helloworld" > .godir
-
-$ find . -type f
-./.godir
-./app/controllers/app.go
-./app/views/Application/Index.html
-./conf/app.conf
-./conf/routes
-
-$ heroku create -b https://github.com/robfig/heroku-buildpack-go-revel.git
-...
+$ cat .buildpacks
+https://github.com/heroku/heroku-buildpack-ruby.git
+https://github.com/robfig/heroku-buildpack-go-revel.git
+https://github.com/nbio/heroku-buildpack-go-train.git
 ```
 
 ### Deployment
 
-Once the `.godir` and heroku remote are set up, deployment is a single command.
+Once `.buildpacks` and heroku remote are set up, deployment is a single command.
 
 ```
 $ git push heroku master
-...
------> Fetching custom git buildpack... done
------> Revel app detected
------> Installing Go 1.1... done
-       Installing Virtualenv... done
-       Installing Mercurial... done
-       Installing Bazaar... done
------> Running: go get -tags heroku ./...
------> Discovering process types
-       Procfile declares types -> (none)
-       Default types for Revel -> web
-
------> Compiled slug size: 33.3MB
------> Launching... done, v5
-       http://pure-sunrise-3607.herokuapp.com deployed to Heroku
 ```
 
 The buildpack will detect your repository as Revel if it
@@ -75,4 +50,6 @@ BUILDPACK_URL=YOUR_GITHUB_GIT_URL` instead of `--buildpack`.
 [quickstart]: http://mmcgrana.github.com/2012/09/getting-started-with-go-on-heroku.html
 [build-constraint]: http://golang.org/pkg/go/build/
 [app-engine-build-constraints]: http://blog.golang.org/2013/01/the-app-engine-sdk-and-workspaces-gopath.html
-
+[heroku-buildpack-multi]: https://github.com/ddollar/heroku-buildpack-multi
+[revel]: https://github.com/robfig/revel
+[train]: https://github.com/shaoshing/train
