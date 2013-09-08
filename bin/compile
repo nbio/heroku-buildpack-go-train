@@ -47,5 +47,7 @@ go build -o $build/bin/train github.com/shaoshing/train/cmd
 
 echo "Path: $PATH"
 echo `which sass`
+echo `which bundle`
+echo `ls -al $build`
 
 cd $build && $build/bin/train
