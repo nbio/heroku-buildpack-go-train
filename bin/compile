@@ -39,16 +39,5 @@ PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 # mkdir -p $build/bin
 PATH=$build/bin:$build/vendor/bundle/ruby/1.9.1/bin:$PATH export PATH
 
-# name=$(cat $build/.godir)
-# p=$GOPATH/src/$name
-# mkdir -p $p
-# cp -R $build/* $p
-
 go get -tags heroku github.com/shaoshing/train
 go build -o $build/bin/train github.com/shaoshing/train/cmd
-
-echo "-----> DEBUG"
-train help
-echo "-----> END DEBUG"
-
-# cd $build && $build/bin/train
