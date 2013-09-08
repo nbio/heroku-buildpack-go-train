@@ -88,7 +88,7 @@ go get github.com/robfig/revel/revel
 go get github.com/shaoshing/train
 go build -o $build/bin/train github.com/shaoshing/train/cmd
 
-gem install bundler
+# gem install bundler
 cd $build && bundle install
 
 cd $build && $build/bin/train
