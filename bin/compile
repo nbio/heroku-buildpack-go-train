@@ -37,7 +37,7 @@ GOPATH=$build/.go export GOPATH
 PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # mkdir -p $build/bin
-PATH=$build/bin:$build/vendor/bundle/ruby/1.9.1/bin:$PATH
+PATH=$build/bin:$build/vendor/bundle/ruby/1.9.1/bin:$PATH export PATH
 
 # name=$(cat $build/.godir)
 # p=$GOPATH/src/$name
