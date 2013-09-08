@@ -36,18 +36,23 @@ GOROOT=$build/.goroot export GOROOT
 GOPATH=$build/.go export GOPATH
 PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
+mkdir -p $build/bin
+PATH=$build/bin:$PATH
+
+echo "-----> DEBUG"
 name=$(cat $build/.godir)
 p=$GOPATH/src/$name
 mkdir -p $p
 cp -R $build/* $p
+echo "-----> END DEBUG"
 
-mkdir -p $build/bin
 go get -tags heroku github.com/shaoshing/train
 go build -o $build/bin/train github.com/shaoshing/train/cmd
 
 echo "Path: $PATH"
 echo `which sass`
 echo `which bundle`
-echo `ls -al $build`
+ls -al $build
+ls -al bin
 
 cd $build && $build/bin/train
