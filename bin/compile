@@ -48,7 +48,7 @@ go get -tags heroku github.com/shaoshing/train
 go build -o $build/bin/train github.com/shaoshing/train/cmd
 
 echo "-----> DEBUG"
-sass --help
+train help
 echo "-----> END DEBUG"
 
-cd $build && $build/bin/train
+# cd $build && $build/bin/train
