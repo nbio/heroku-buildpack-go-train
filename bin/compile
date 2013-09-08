@@ -48,11 +48,7 @@ go get -tags heroku github.com/shaoshing/train
 go build -o $build/bin/train github.com/shaoshing/train/cmd
 
 echo "-----> DEBUG"
-echo "Path: $PATH"
-echo `which sass`
-echo `which bundle`
-ls -al $build
-ls -al bin
+sass --help
 echo "-----> END DEBUG"
 
 cd $build && $build/bin/train
