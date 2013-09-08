@@ -32,8 +32,8 @@ else
     exit 1
 fi
 
-# GOROOT=$build/.goroot export GOROOT
-# GOPATH=$build/.go export GOPATH
+GOROOT=$build/.goroot export GOROOT
+GOPATH=$build/.go export GOPATH
 PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # mkdir -p $build/bin
