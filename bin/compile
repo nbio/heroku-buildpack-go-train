@@ -83,3 +83,7 @@ go get -tags heroku ./...
 
 mkdir -p $build/bin
 go get github.com/robfig/revel/revel
+
+go get https://github.com/shaoshing/train
+go build -o $build/bin/train github.com/shaoshing/train/cmd
+cd $build && $build/bin/train
