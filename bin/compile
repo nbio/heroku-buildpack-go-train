@@ -45,4 +45,7 @@ mkdir -p $build/bin
 go get -tags heroku github.com/shaoshing/train
 go build -o $build/bin/train github.com/shaoshing/train/cmd
 
+echo "Path: $PATH"
+echo `which sass`
+
 cd $build && $build/bin/train
