@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
-set -e
 
-if (test -e $1/conf/app.conf && test -e $1/conf/routes)
-then echo Revel
-else echo no; exit 1
+if (test -e $1/assets); then
+  echo "Train"
+  exit 0
+else
+  echo "no assets/ directory in build path"
+  exit 1
 fi
